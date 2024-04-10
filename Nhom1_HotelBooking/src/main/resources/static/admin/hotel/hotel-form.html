@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body id="page-top">
+	<!-- Content Right -->
+				<div class="ps-3 pe-3">
+					<div class="col-6">
+						<h4 class="fw-bold">THÔNG TIN KHÁCH SẠN</h4>
+					</div>
+					<div class="row p-4 m-4 mt-4" style="background-color: white; border-radius: 15px;">
+						<form class="row g-3 ps-5 pe-5 pb-5" >
+							<!-- Trong trang JSP của bạn -->
+							<div class="col-md-6">
+								<label for="hotelID" class="form-label fw-bold">Hotel
+									ID:</label>
+								<input class="form-control" ng-model="form.hotelid" />
+
+							</div>
+							<div class="col-md-6">
+								<label for="hotelName" class="form-label fw-bold">Hotel
+									Name: </label>
+								<input class="form-control" ng-model="form.hotelName" />
+
+							</div>
+							<div class="col-12">
+								<label for="inputAddress" class="form-label fw-bold">Address:
+								</label>
+								<input class="form-control" placeholder="1234 Nguyễn Huệ" ng-model="form.address" />
+
+							</div>
+							<div class="col-md-4">
+								<label for="inputCity" class="form-label fw-bold">City:
+								</label>
+								<select class="form-select"  ng-model="form.city">
+									<option ng-repeat="c in cities" ng-value="c.id" >{{c.name}}</option>
+								</select>
+							</div>
+							<div class="col-md-4">
+								<label for="inputState" class="form-label fw-bold">Stars</label><br>
+								<!--<div th:each="star : ${stars}">
+									<input type="radio" th:field="*{stars}" th:value="${star}" th:id="${'star_' + star}"
+										class="form-check-inline ms-3" delimiter=" "/>
+									<label th:for="${'star_' + star}" th:text="${star}"></label>
+								</div>-->
+								<select ng-model="form.stars" class="form-control">
+									<option ng-value="1">1</option>
+									<option ng-value="2">2</option>
+									<option ng-value="3">3</option>
+									<option ng-value="4">4</option>
+									<option ng-value="5">5</option>
+								</select>
+							</div>
+							<div class="col-md-4">
+								<label for="inputPhoneNum" class="form-label fw-bold">PhoneNum:
+								</label>
+								<input class="form-control" type="text"  ng-model="form.phoneNum" />
+							</div>
+							<div class="col-12">
+								<label for="description" class="form-label fw-bold">Description:
+								</label>
+								 <textarea class="form-control" rows="4" cols="30" ng-model="form.description"></textarea>
+							</div>
+							<div class="col-md-6">
+								<label for="inputZip" class="form-label fw-bold">Email:
+								</label>
+								<input class="form-control"  ng-model="form.email"/>
+
+							</div>
+							<div class="col-md-6">
+								<label class="form-label fw-bold">Status:</label><br>
+								<input type="radio"  ng-model="form.status" ng-value="Active"  delimiter=" "
+										class="form-check-inline ms-3" /> Active
+								<input type="radio"  ng-model="form.status" ng-value="Inactive"  delimiter=" "
+										class="form-check-inline ms-3" /> Inactive
+							</div>
+							<div class="col-12">
+								<div class="form-group">
+									<label class="form-label fw-bold">Image:</label> <input name="attach" type="file"
+										class="form-control" multiple="multiple">
+								</div>
+							</div>
+
+							<div class="col-12">
+								<div class="alert alert-warning" role="alert"  th:text="${message}"></div>
+							</div>
+
+							<div class="col-12">
+								<button type="submit" class="btn btn-primary float-end"
+									 ng-click="create()">Save</button>
+								<a type="reset" ng-click="reset()"
+									class="btn btn-secondary float-end me-2">Reset</a>
+							</div>
+						</form>
+					</div>
+				</div>
+</body>
+</html>

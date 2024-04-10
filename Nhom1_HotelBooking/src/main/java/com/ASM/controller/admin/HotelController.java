@@ -56,7 +56,7 @@ public class HotelController {
 		model.addAttribute("currentPage", page);
 		model.addAttribute("totalPages", hotelPage.getTotalPages());
 		model.addAttribute("keyword", keyword);
-		return "admin/hotel";
+		return "admin/hotel_index";
 	}
 
 	@GetMapping("/hotel-form/edit/{hotelid}")

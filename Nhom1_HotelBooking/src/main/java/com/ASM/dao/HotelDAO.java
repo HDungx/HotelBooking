@@ -1,6 +1,7 @@
 package com.ASM.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,4 +30,6 @@ public interface HotelDAO extends JpaRepository<Hotel, String> {
 	@Query("select o from Hotel o where o.hotelid = ?1")
 	Hotel findByHotelid(String ID);
 	
+	@Query("SELECT o FROM Hotel o WHERE o.hotelName LIKE %?1% OR o.city LIKE %?1%")
+	List<Hotel> findAllByHotelName(Optional<String> name);
 }
