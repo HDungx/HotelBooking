@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<!-- Content -->
+	<div class="ps-3 pe-3">
+		<div class="w-100" style="height: auto;">
+			<div class="col-6">
+				<h4 class="fw-bold">THÔNG TIN NGƯỜI DÙNG</h4>
+			</div>
+			<div class="row p-4 m-4 mt-4"
+				style="background-color: white; border-radius: 15px;">
+				<form class="row g-3 mt-3" >
+					<div class="col-md-12">
+						<label for="email" class="form-label fw-bold">Email:</label> <input
+							class="form-control" ng-model="form.email" readonly="true" />
+					</div>
+					<div class="col-md-12">
+						<label for="firstName" class="form-label fw-bold">First
+							Name: </label> <input class="form-control" ng-model="form.firstName"
+							readonly="true" />
+					</div>
+					<div class="col-12">
+						<label for="lastName" class="form-label fw-bold">Last
+							Name: </label> <input class="form-control" ng-model="form.lastName"
+							readonly="true" />
+					</div>
+					<div class="col-md-6">
+						<label for="phoneNum" class="form-label fw-bold">Phone
+							Number: </label> <input class="form-control" ng-model="form.phoneNum"
+							readonly="true" />
+					</div>
+					<div class="col-md-6">
+						<label for="gender" class="form-label fw-bold">Gender </label><br>
+						<input type="radio" ng-model="form.gender"
+							class="form-check-inline ms-3" ng-value="Nam" checked="true"/>
+						Nam <input type="radio"  ng-model="form.gender"
+							class="form-check-inline ms-3" ng-value="Nu" />
+						Nữ <input type="radio"  ng-model="form.gender"
+							class="form-check-inline ms-3" ng-value="Khac"/>
+						Khác
+
+					</div>
+					<div class="col-md-6">
+						<label for="birthdate" class="form-label fw-bold">Birth
+							date: </label> <input class="form-control" ng-model="form.birthdate"
+							readonly="true" />
+					</div>
+					<div class="col-md-6">
+						<label for="status" class="form-label fw-bold">Status: </label><br>
+						<input type="radio" ng-model="form.status" ng-value="Active" class="form-check-inline ms-3" />
+						Active 
+						<input type="radio" ng-model="form.status" ng-value="Inactive" class="form-check-inline ms-3" />
+						Inactive
+					</div>
+					<br>
+					<div class="col-12">
+						<button type="submit" class="btn btn-primary float-end" ng-click="create()">Save</button>
+						<a type="reset"class="btn btn-secondary float-end me-2" ng-click="reset()">Reset</a>
+					</div>
+					<div style="font-weight: bold; color: red; text-align: center;"
+						th:text="${message}"></div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
