@@ -37,15 +37,15 @@ public class UserController {
 	    if (keyword.isEmpty()) {
 	        userPage = dao.findAll(pageable);
 	    } else {
-	        userPage = dao.findAllByEmailLike("%" + keyword + "%", pageable);
+	      //  userPage = dao.findAllByEmailLike("%" + keyword + "%", pageable);
 	    }
 	    User user = (User) sessionService.get("user");
 		model.addAttribute("user", user);
-	    model.addAttribute("users", userPage.getContent());
+	    //model.addAttribute("users", userPage.getContent());
 	    model.addAttribute("currentPage", page);
-	    model.addAttribute("totalPages", userPage.getTotalPages());
+	   // model.addAttribute("totalPages", userPage.getTotalPages());
 	    model.addAttribute("keyword", keyword);
-	    return "admin/user";
+	    return "admin/user_index";
 	}
 
 	@RequestMapping("/user-form/edit/{email}")
