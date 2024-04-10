@@ -15,8 +15,7 @@
 					<div class="col-md-4">
 						<label for="roomTypeName" class="form-label fw-bold">RoomType:</label> 
 						<select class="form-control" id="roomType" name="roomType" ng-model="form.roomType.typeid">
-							<option th:each="roomType : ${typeList}" th:value="${roomType.typeid}"
-								th:text="${roomType.typeName}"></option>
+							<option ng-repeat="rt in roomtypes" ng-value="rt.typeid">{{rt.typeName}}</option>
 						</select>
 					</div>
 					<div class="col-md-4">
@@ -29,8 +28,8 @@
 					</div>
 					<div class="col-md-12">
 						<label for="hotelName" class="form-label fw-bold">Hotel Name:</label> <select
-							class="form-control" id="roomType" name="roomType" ng-model="form.hotel.hotelid">
-							<option th:each="hotel : ${hotels}" th:value="${hotel.hotelid}" th:text="${hotel.hotelName}"></option>
+							class="form-control" ng-model="form.hotel.hotelid">
+							<option ng-repeat="hotel in hotels" ng-value="hotel.hotelid">{{hotel.hotelName}}</option>
 						</select>
 					</div>
 					<div class="col-12">

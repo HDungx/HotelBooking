@@ -2,11 +2,21 @@ const app = angular.module("room-app", [])
 app.controller("room-ctrl", function($scope, $http) {
 	$scope.rooms = [];
 	$scope.form = {};
-
+	$scope.roomtypes=[];
+	$scope.hotels=[];
+	
 	$scope.initialize = function() {
 		$http.get("/rest/room").then(resp => {
 			$scope.rooms = resp.data;
 		});
+		
+		$http.get("/rest/roomtypes").then(resp=>{
+			$scope.roomtypes=resp.data;
+		})
+		
+		$http.get("/rest/hotels").then(resp=>{
+			$scope.hotels=resp.data;
+		})
 	}
 
 	//Khoi dau
